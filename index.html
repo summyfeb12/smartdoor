@@ -238,11 +238,12 @@ function mainscreen() {
       });
       accessibility.on('mousedown', function() {
            var d = new Date();
+           var e=0;
            if ((d.getTime() - timer) < 500) {
+               e=0;
                changeTopLength();
            }
            else{
-          var e=0;   
           setTimeout(function(){
           if(e==1){
            mainApps.add(openRect);

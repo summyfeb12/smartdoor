@@ -84,7 +84,7 @@ function getWeather(){
     if(language==1){
         lang='es';
     }
-    var url = 'https://api.openweathermap.org/data/2.5/weather?q=Chicago&units='+units+'&APPID=788adeb06070edb262bf78f315e1400a&lang='+lang;
+    var url = '//api.openweathermap.org/data/2.5/weather?q=Chicago&units='+units+'&APPID=788adeb06070edb262bf78f315e1400a&lang='+lang;
 
     //metric for C and imperial for F
 

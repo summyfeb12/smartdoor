@@ -56,7 +56,7 @@ function getTime() {
     outTimeText.text = timeText.text;
     }
     else{
-    timeText.text = outTimeText.text = checkdigit(h) + ":" + m;    
+    timeText.text = outTimeText.text = checkdigit(h) + ":" + m;
     }
     if(dateFormat == 0){
     dateText.text = outDateText.text = weekdd +", "+ month + " "+ dd ;
@@ -82,25 +82,25 @@ function getWeather(){
         units='imperial';
     }
     if(language==1){
-        lang='es';    
+        lang='es';
     }
-    var url = 'http://api.openweathermap.org/data/2.5/weather?q=Chicago&units='+units+'&APPID=788adeb06070edb262bf78f315e1400a&lang='+lang;
+    var url = 'https://api.openweathermap.org/data/2.5/weather?q=Chicago&units='+units+'&APPID=788adeb06070edb262bf78f315e1400a&lang='+lang;
 
     //metric for C and imperial for F
-    
-    var weatherExtract=[];    
+
+    var weatherExtract=[];
     $.get(url,function(d){
         cbc(d);
     });
     function cbc(d)
         {
-        weatherExtract=d;      
+        weatherExtract=d;
         var weathericonurl = weatherExtract.weather[0].icon;
         var x = String(Math.round(weatherExtract.main.temp));
         tempText.text = x +' \u00B0'+tempUnits;
         var d = weatherExtract.weather[0].description;
         tempDesText.text = d[0].toUpperCase() + d.slice(1);
-        
+
         fabric.Image.fromURL('img/'+ weathericonurl +'.png', function(weatherImg) {
         weatherImg.set({left: 840, top: 109.5, originX: 'right', originY: 'top'});
         if((x>-1)&&(x<10)){weatherImg.left = 895;}
@@ -109,9 +109,9 @@ function getWeather(){
         inWindow.add(weatherImg);
         weatherImg.hasControls = weatherImg.hasBorders = false;
         weatherImg.lockMovementX = weatherImg.lockMovementY = true;
-    
-    });    
-            
+
+    });
+
         inWindow.add(tempText);
         inWindow.add(tempDesText);
         }

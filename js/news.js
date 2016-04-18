@@ -1,5 +1,5 @@
 function getNews(){
-    
+
 var newsRect = new fabric.Rect({
   left: 85,
   top: topLength,
@@ -13,7 +13,7 @@ var newsRect = new fabric.Rect({
   angle: 0
 });
 newsRect.hasControls = newsRect.hasBorders = false;
-newsRect.lockMovementX = newsRect.lockMovementY = true; 
+newsRect.lockMovementX = newsRect.lockMovementY = true;
 
 var newsHeaderText = new fabric.Text('News', { left: 615, top: topLength + 80, fontFamily: 'HelveticaLight', fontSize: 44, originX: 'center', originY: 'top', fontWeight: 300});
 newsHeaderText.hasControls = newsHeaderText.hasBorders = false;
@@ -41,13 +41,13 @@ thirdText.lockMovementX = thirdText.lockMovementY = true;
     inWindow.add(newsRect);
     crossMain();
 
-    var url = 'http://api.nytimes.com/svc/topstories/v1/world.json?api-key=141a890ea8bc94b8dd5afc9c4a88bd53:17:74891958';
+    var url = 'https://api.nytimes.com/svc/topstories/v1/world.json?api-key=141a890ea8bc94b8dd5afc9c4a88bd53:17:74891958';
     var newsExtract = [];
     var s = [];
     var count = 0, i = 0, j = 0;
 
     $.get(url,function(d){
-        cbc(d);   
+        cbc(d);
     });
 
     function cbc(d)
@@ -64,19 +64,19 @@ thirdText.lockMovementX = thirdText.lockMovementY = true;
 
         fabric.Image.fromURL(s[0][1], function(i1) {
         i1.set({left: 165,
-        top: topLength+180, scaleX: 2/3, scaleY: 2/3, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});  
+        top: topLength+180, scaleX: 2/3, scaleY: 2/3, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});
         inWindow.add(i1);
         });
-            
+
         fabric.Image.fromURL(s[1][1], function(i2) {
         i2.set({left: 165,
-        top: topLength+330, scaleX: 2/3, scaleY: 2/3, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});  
+        top: topLength+330, scaleX: 2/3, scaleY: 2/3, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});
         inWindow.add(i2);
         });
-            
+
         fabric.Image.fromURL(s[2][1], function(i3) {
         i3.set({left: 165,
-        top: topLength+480, scaleX: 2/3, scaleY: 2/3, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});  
+        top: topLength+480, scaleX: 2/3, scaleY: 2/3, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});
         inWindow.add(i3);
         });
 
